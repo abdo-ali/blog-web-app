@@ -18,7 +18,13 @@
           <h3>content</h3>
           <p><%= post.content %></p>
         </div>
-        <a href="/posts/<%= post.id %>" class="btn btn-secondary read-more">Read More</a>
+        <div class="post-actions">
+          <a href="<%= post.link %>" class="btn btn-secondary read-more" target="_blank">Read More</a>
+        <!-- delete button -->
+        <a href="/delete-post/<%= post.id %>" class="btn btn-danger delete-post">Delete</a>
+        <!-- edit button -->
+        <a href="/edit-post/<%= post.id %>" class="btn btn-primary edit-post">Edit</a>
+        </div>
       </article>
       <hr>
     <% }); %>

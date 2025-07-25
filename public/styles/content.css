@@ -20,22 +20,41 @@ background-color: green;
   color: white;
 }
 .post{
-      display: grid;
-    grid-template-columns: 1fr 2fr .5fr;
+    display: grid;
+    grid-template-columns: 1fr 2fr 120px;
     /* margin-left: 20px; */
     align-items: center;
     justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  .post {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  
+}
 .post-header,
 .post-content {
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+
 .post-header h3,
 .post-content h3 {
   margin-right: 10px;
+}
+.post-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.post-actions a:not(:last-child){
+  margin-bottom: 5px;
 }
 header,
 footer {
@@ -65,7 +84,6 @@ p {
 form {
   margin-top: 50px;
 }
-
 .feedback-input {
   color: white;
   font-weight: 500;
