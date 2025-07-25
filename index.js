@@ -76,6 +76,27 @@ app.post("/edit-post/:index", (req, res) => {
     res.status(404).send("Post not found");
   }
 });
+//about page
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
+});
+//contact page
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs");
+});
+app.post("/contact", (req, res) => {
+  const { name, email, message } = req.body;
+  if (!name || !email || !message) {
+    console.log("Name, email, or message is missing");
+    return res.status(400).send("All fields are required");
+  }
+  console.log("Contact form submitted:", { name, email, message });
+  //thanks to contact
+  res.render("contact-success.ejs", { name: name });
+});
+app.get("/contact-success", (req, res) => {
+  res.render("contact-success.ejs");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
